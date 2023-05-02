@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,11 +16,19 @@
     <div class="row">
     <form method="post" action="/saveRegister" class="col-sm-6">
         <h2>User Register</h2>
+        <c:if test="${errors != null}">
+            <c:forEach var="item" items="${errors}">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong><c:out value="${item.getField()}"></c:out></strong> <c:out value="${item.getDefaultMessage()}"></c:out>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </c:forEach>
+        </c:if>
         <div class="mb-3">
             <input required name="name" class="form-control" placeholder="Name">
         </div>
         <div class="mb-3">
-            <input required name="email" class="form-control" placeholder="E-Mail">
+            <input required type="email" name="email" class="form-control" placeholder="E-Mail">
         </div>
         <div class="mb-3">
             <input required name="password" type="password" class="form-control" placeholder="Password">
