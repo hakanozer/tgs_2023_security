@@ -26,6 +26,7 @@ public class RegisterController {
             model.addAttribute("errors", errors);
         }else {
             System.out.println(user);
+            model.addAttribute("password", user.getPassword());
         }
 
         return "register";

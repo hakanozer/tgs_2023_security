@@ -16,6 +16,11 @@
     <div class="row">
     <form method="post" action="/saveRegister" class="col-sm-6">
         <h2>User Register</h2>
+
+        <c:if test="${password != null}">
+            ${password}
+        </c:if>
+
         <c:if test="${errors != null}">
             <c:forEach var="item" items="${errors}">
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
