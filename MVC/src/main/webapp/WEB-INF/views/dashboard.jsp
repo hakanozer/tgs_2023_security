@@ -11,15 +11,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </head>
 <body>
-<div class="d-flex align-items-center justify-content-center vh-100">
-    <div class="text-center">
-        <h1 class="display-1 fw-bold">XSS Error</h1>
-        <p class="fs-3"> <span class="text-danger">Opps!</span> Page not found.</p>
-        <p class="lead">
-            The page you’re looking for doesn’t exist.
-        </p>
-        <a href="/" class="btn btn-primary">Goto Home</a>
-    </div>
+<div class="container">
+
+    <h2>Welcome Dashboard</h2>
+
 </div>
 </body>
 </html>

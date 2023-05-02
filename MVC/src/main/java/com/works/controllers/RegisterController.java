@@ -1,6 +1,6 @@
 package com.works.controllers;
 
-import com.works.props.User;
+import com.works.props.Customer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,13 +20,13 @@ public class RegisterController {
     }
 
     @PostMapping("/saveRegister")
-    public String saveRegister(@Valid User user, BindingResult result, Model model) {
+    public String saveRegister(@Valid Customer customer, BindingResult result, Model model) {
         if ( result.hasErrors() ) {
             List<FieldError> errors = result.getFieldErrors();
             model.addAttribute("errors", errors);
         }else {
-            System.out.println(user);
-            model.addAttribute("password", user.getPassword());
+            System.out.println(customer);
+            model.addAttribute("password", customer.getPassword());
         }
 
         return "register";

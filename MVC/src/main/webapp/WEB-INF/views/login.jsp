@@ -14,24 +14,8 @@
 <div class="container">
 
     <div class="row">
-    <form method="post" action="/saveRegister" class="col-sm-6">
-        <h2>User Register</h2>
-
-        <c:if test="${password != null}">
-            ${password}
-        </c:if>
-
-        <c:if test="${errors != null}">
-            <c:forEach var="item" items="${errors}">
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong><c:out value="${item.getField()}"></c:out></strong> <c:out value="${item.getDefaultMessage()}"></c:out>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </c:forEach>
-        </c:if>
-        <div class="mb-3">
-            <input required name="name" class="form-control" placeholder="Name">
-        </div>
+    <form method="post" action="/customerLogin" class="col-sm-6">
+        <h2>User Login</h2>
         <div class="mb-3">
             <input required type="email" name="email" class="form-control" placeholder="E-Mail">
         </div>
