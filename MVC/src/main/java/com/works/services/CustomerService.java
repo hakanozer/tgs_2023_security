@@ -45,4 +45,9 @@ public class CustomerService {
         return status;
     }
 
+
+    public void logout() {
+        req.getSession().removeAttribute("customer");
+    }
+
 }

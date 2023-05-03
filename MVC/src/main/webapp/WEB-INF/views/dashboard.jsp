@@ -12,7 +12,7 @@
 </head>
 <body>
 <div class="container">
-
+    <jsp:include page="inc/navbar.jsp"></jsp:include>
     <h2>Welcome Dashboard</h2>
 
 </div>

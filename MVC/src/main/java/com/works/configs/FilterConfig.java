@@ -17,6 +17,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.works.props.Customer;
 import lombok.RequiredArgsConstructor;
 import org.owasp.validator.html.AntiSamy;
 import org.owasp.validator.html.CleanResults;
@@ -96,9 +97,6 @@ public class FilterConfig implements Filter {
                         }
                     }
                 }
-
-
-
             } catch (Exception e) {
                 System.err.println("req hatası : " + e);
             }
@@ -106,7 +104,21 @@ public class FilterConfig implements Filter {
             long between = end - start;
             System.out.println(between);
             if (errors == 0) {
-                chain.doFilter(request, response);
+                if ( url.equals("/") || url.equals("/login") || url.equals("/customerLogin") ) {
+                    loginStatus = false;
+                }
+                if ( loginStatus ) {
+                    boolean status = request.getSession().getAttribute("customer") == null;
+                    if(status) {
+                        response.sendRedirect("/login");
+                    }else {
+                        Customer customer = (Customer) request.getSession().getAttribute("customer");
+                        request.setAttribute("customer", customer);
+                        chain.doFilter(request, response);
+                    }
+                }else {
+                    chain.doFilter(request, response);
+                }
             }
         }else {
             chain.doFilter(request, response);
